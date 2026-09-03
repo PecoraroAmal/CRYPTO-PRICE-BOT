@@ -1,0 +1,8 @@
+.env
+venv/
+__pycache__/
+*.pyc
+*.db
+deploy.txt
+master.txt
+vps-netcup-scheda-tecnica.txt
