@@ -100,8 +100,8 @@ def format_quota(used: int, monthly_limit: int) -> str:
 
 
 def format_step_notification(symbol: str, currency: str, direction: str, current_price: float) -> str:
-    trend_emoji = "📈" if direction == "up" else "📉"
-    return f"{trend_emoji} *{symbol}*: nuovo livello {format_amount(current_price, currency)}"
+    trend_emoji = "👆🏼" if direction == "up" else "👇🏼"
+    return f"{trend_emoji} *{symbol}*: livello raggiunto {format_amount(current_price, currency)}"
 
 
 def format_help() -> str:
@@ -126,5 +126,12 @@ def format_help() -> str:
         "Chiamate CoinGecko usate/rimanenti questo mese.\n\n"
         "In più, ogni token ha delle notifiche automatiche ogni volta che "
         "il prezzo attraversa un livello fisso (es. BTC ogni 1.000$/€, "
-        "ETH ogni 250, ecc.) — nessun comando richiesto, partono da sole."
+        "ETH ogni 250, ecc.) — nessun comando richiesto, partono da sole.\n\n"
+        "Token - Step"
+        "BTC - 1.000"
+        "ETH - 250"
+        "SOL - 5"
+        "XRP - 0,25"
+        "AVAX - 0,50"
+        "LTC - 2,5"
     )

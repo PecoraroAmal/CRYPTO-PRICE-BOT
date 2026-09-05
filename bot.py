@@ -1,6 +1,7 @@
 import functools
 import logging
 import math
+import time
 
 from telegram import BotCommand, Update
 from telegram.ext import Application, CommandHandler, ContextTypes
@@ -216,7 +217,8 @@ def main():
     application.add_handler(CommandHandler("quota", cmd_quota))
     application.add_handler(CommandHandler("help", cmd_help))
 
-    application.job_queue.run_repeating(check_alerts_job, interval=POLL_INTERVAL_SECONDS, first=POLL_INTERVAL_SECONDS)
+    first_run_delay = POLL_INTERVAL_SECONDS - (time.time() % POLL_INTERVAL_SECONDS)
+    application.job_queue.run_repeating(check_alerts_job, interval=POLL_INTERVAL_SECONDS, first=first_run_delay)
 
     logger.info("Bot avviato, in polling...")
     application.run_polling()
