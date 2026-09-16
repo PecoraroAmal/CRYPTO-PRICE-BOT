@@ -100,8 +100,8 @@ def format_quota(used: int, monthly_limit: int) -> str:
 
 
 def format_step_notification(symbol: str, currency: str, direction: str, current_price: float) -> str:
-    trend_emoji = "👆🏼" if direction == "up" else "👇🏼"
-    return f"{trend_emoji} *{symbol}*: livello raggiunto {format_amount(current_price, currency)}"
+    verb = "è salito" if direction == "up" else "è sceso"
+    return f"{symbol} {verb} al livello {format_amount(current_price, currency)}"
 
 
 def format_help() -> str:
